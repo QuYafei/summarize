@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yf.summarize.summarize.mapper.UserMapper" >
+  <resultMap id="BaseResultMap" type="com.yf.summarize.summarize.entity.User" >
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="user_name" property="userName" jdbcType="VARCHAR" />
+    <result column="password" property="password" jdbcType="VARCHAR" />
+    <result column="phone" property="phone" jdbcType="VARCHAR" />
+    <result column="email" property="email" jdbcType="VARCHAR" />
+    <result column="created" property="created" jdbcType="TIMESTAMP" />
+    <result column="updated" property="updated" jdbcType="TIMESTAMP" />
+  </resultMap>
+
+  <select id="login" resultType="com.yf.summarize.summarize.entity.User">
+    select id,user_name,password,phone,email,created,updated from wf_user where user_name = #{userName} and password = #{password}
+  </select>
+
+  <select id="findByTokenUser" resultType="com.yf.summarize.summarize.entity.User">
+    select id,user_name,password,phone,email,created,updated from wf_user where id = #{token}
+  </select>
+</mapper>
