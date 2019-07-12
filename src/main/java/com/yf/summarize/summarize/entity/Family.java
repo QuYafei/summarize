@@ -1,8 +1,10 @@
 package com.yf.summarize.summarize.entity;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
-public class Family {
+
+public class Family implements Serializable {
     @Id
     private String id;
 

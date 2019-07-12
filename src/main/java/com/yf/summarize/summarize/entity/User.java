@@ -1,5 +1,7 @@
 package com.yf.summarize.summarize.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import java.util.Date;
 import javax.persistence.*;
 
@@ -30,8 +32,9 @@ public class User {
      */
     private String email;
 
+    @JsonIgnore
     private Date created;
-
+    @JsonIgnore
     private Date updated;
 
     /**

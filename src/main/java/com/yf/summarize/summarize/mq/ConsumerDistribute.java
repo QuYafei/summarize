@@ -10,6 +10,8 @@ import org.springframework.jms.annotation.JmsListener;
 import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
 
+import javax.mail.MessagingException;
+
 @Component
 @Slf4j
 public class ConsumerDistribute {
@@ -19,7 +21,7 @@ public class ConsumerDistribute {
     private MessageAdapter messageAdapter;
 
     @JmsListener(destination = "messages_queue")
-    public void distribute(String json){
+    public void distribute(String json) throws MessagingException {
         log.info("#####消息服务平台接受消息内容:{}#####",json);
 
         if (StringUtils.isEmpty(json)){

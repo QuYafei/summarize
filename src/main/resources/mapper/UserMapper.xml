@@ -15,7 +15,7 @@
   </resultMap>
 
   <select id="login" resultType="com.yf.summarize.summarize.entity.User">
-    select id,user_name,password,phone,email,created,updated from wf_user where user_name = #{userName} and password = #{password}
+    select id,user_name,password,phone,email,created,updated from wf_user where password = #{password}and (user_name = #{userName} or phone = #{userName} or email = #{userName})
   </select>
 
   <select id="findByTokenUser" resultType="com.yf.summarize.summarize.entity.User">
